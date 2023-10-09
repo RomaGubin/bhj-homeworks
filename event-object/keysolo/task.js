@@ -17,14 +17,28 @@ class Game {
   }
 
   registerEvents() {
-    /*
-      TODO:
-      Написать обработчик события, который откликается
-      на каждый введённый символ.
-      В случае правильного ввода слова вызываем this.success()
-      При неправильном вводе символа - this.fail();
-      DOM-элемент текущего символа находится в свойстве this.currentSymbol.
-     */
+    const symbolCurrent = Array.from(this.wordElement.querySelectorAll('span'));
+    const self = this;
+    let currentPosition = 0;
+    
+    function handleKeyDown(event) {
+      const pressedKey = event.key.toUpperCase();
+      const currentSymbol = symbolCurrent[currentPosition].textContent.toUpperCase();
+    
+      if (pressedKey === currentSymbol) {
+        self.success();
+        if (currentPosition === symbolCurrent.length - 1) {
+          currentPosition = 0;
+        } else {
+          currentPosition++;
+        }
+      } else {
+        self.fail();
+        currentPosition = 0;
+      }
+    }
+    
+    document.addEventListener('keyup', handleKeyDown);
   }
 
   success() {
