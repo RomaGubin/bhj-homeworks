@@ -17,28 +17,26 @@ class Game {
   }
 
   registerEvents() {
-    const symbolCurrent = Array.from(this.wordElement.querySelectorAll('span'));
-    const self = this;
+
     let currentPosition = 0;
     
-    function handleKeyDown(event) {
+    document.addEventListener('keyup', event => {
+      const symbolCurrent = Array.from(this.wordElement.querySelectorAll('span'));
       const pressedKey = event.key.toUpperCase();
       const currentSymbol = symbolCurrent[currentPosition].textContent.toUpperCase();
     
       if (pressedKey === currentSymbol) {
-        self.success();
+        this.success();
         if (currentPosition === symbolCurrent.length - 1) {
           currentPosition = 0;
         } else {
           currentPosition++;
         }
       } else {
-        self.fail();
+        this.fail();
         currentPosition = 0;
       }
-    }
-    
-    document.addEventListener('keyup', handleKeyDown);
+    });
   }
 
   success() {
