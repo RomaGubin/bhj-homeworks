@@ -15,7 +15,7 @@ class Game {
     this.winsElement.textContent = 0;
     this.lossElement.textContent = 0;
   }
-
+// после вебинара решил задачу
   registerEvents() {
 
     let currentPosition = 0;
