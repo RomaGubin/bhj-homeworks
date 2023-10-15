@@ -15,7 +15,7 @@ class Game {
     this.winsElement.textContent = 0;
     this.lossElement.textContent = 0;
   }
-// после вебинара решил задачу
+  
   registerEvents() {
 
     let currentPosition = 0;
@@ -23,9 +23,9 @@ class Game {
     document.addEventListener('keyup', event => {
       const symbolCurrent = Array.from(this.wordElement.querySelectorAll('span'));
       const pressedKey = event.key.toUpperCase();
-      const currentSymbol = symbolCurrent[currentPosition].textContent.toUpperCase();
-    
-      if (pressedKey === currentSymbol) {
+
+      if (pressedKey === symbolCurrent[currentPosition].textContent.toUpperCase()) {
+
         this.success();
         if (currentPosition === symbolCurrent.length - 1) {
           currentPosition = 0;
