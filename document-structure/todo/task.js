@@ -1,12 +1,12 @@
-const task__input = document.getElementById('task__input');
-const tasks__list = document.getElementById('tasks__list');
+const taskInput = document.getElementById('task__input');
+const tasksList = document.getElementById('tasks__list');
 const form = document.querySelector('form');
 
 form.addEventListener('submit', (e) => {
     e.preventDefault();
     
     function addingNote() {
-      let task__inputValue = task__input.value.trim();
+      let task__inputValue = taskInput.value.trim();
 
 
       if (task__inputValue !== '') {
@@ -25,7 +25,7 @@ form.addEventListener('submit', (e) => {
     console.log(tasks__list);
 });
 
-tasks__list.addEventListener('click', (e) => {
+tasksList.addEventListener('click', (e) => {
   if (e.target.classList.contains('task__remove')) {
     e.target.parentElement.remove();
   }
