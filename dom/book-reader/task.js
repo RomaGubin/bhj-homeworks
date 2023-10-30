@@ -13,8 +13,6 @@ font_size.forEach(font_size => {
   font_size.addEventListener('click', e => {
     e.preventDefault();
 
-    console.log(font_size);
-    console.log('click');
     book.classList.remove('book_fs-big')
     book.classList.remove('book_fs-small')
 

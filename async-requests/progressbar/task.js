@@ -15,19 +15,11 @@ form.addEventListener('submit', (e) => {
     if (e.lengthComputable) {
       const totalSize = e.total;
       const loadedSize = e.loaded;
-      const percentage = (loadedSize / totalSize) * 100;
+      const percentage = loadedSize / totalSize;
 
       progress.value = percentage;
     }
   });
-
-  // xhr.onreadystatechange = function() {
-  //   if (xhr.readyState === 4 && xhr.status === 200) {
-  //     alert('Загрузка прошла успешно!');
-  //   } else {
-  //     alert('Not Found');
-  //   }
-  // };
 
   xhr.send(formData);
 });
