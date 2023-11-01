@@ -5,13 +5,12 @@ function setCookie(name, value) {
 }
 
 function getCookie(name) {
-  try {
+   if (document.cookie.indexOf('state=off') !== -1) {
     const pairs = document.cookie.split('; ');
     const cookie = pairs.find(p => p.startsWith(name + '='));
     return cookie.substring(name.length + 1);
-  } catch {
-    null
   }
+  null
 }
 
 if (getCookie('state') !== 'off' && !subscribeModal.classList.contains('modal_active')) {
@@ -25,3 +24,5 @@ subscribeModal.addEventListener('click', (e) => {
   }
 });
 
+// document.cookie = 'state=; Expires=Thu, 01 Jan 1970 00:00:00 GMT';
+// subscribeModal.classList.toggle('modal_active');
